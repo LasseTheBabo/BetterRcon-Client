@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'org.openjfx.javafxplugin' version "0.1.0"
+    id 'com.gradleup.shadow' version '9.3.2'
 }
 
 group = 'org.lpt'
@@ -17,14 +18,15 @@ dependencies {
     implementation "org.openjfx:javafx-fxml:21.0.2"
     implementation "org.openjfx:javafx-graphics:21.0.2"
 
-    implementation "com.github.LasseTheBabo:LPT-Utilities:v2.0-fix2"
+    implementation "com.github.LasseTheBabo:LPT-Utilities:v2.2.0"
 }
 
 test {
     useJUnitPlatform()
 }
 
-jar {
+shadowJar {
+    archiveClassifier.set('')
     manifest {
         attributes 'Main-Class': 'org.lpt.betterrcon_client.Main'
     }
